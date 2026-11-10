@@ -1,0 +1,11 @@
+*.xlsx
+*.xls
+*.xls
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+data/*.tmp.duckdb
+.streamlit/secrets.toml
+.streamlit/secrets.toml
+captura_*.png
