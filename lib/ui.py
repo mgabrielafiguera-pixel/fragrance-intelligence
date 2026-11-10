@@ -94,6 +94,13 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif !important; color: #2A1520
 .fi-brandrow img { width: 90px; height: 28px; object-fit: contain; object-position: left; }
 .fi-brandrow .b { background: #F3E3E8; border-radius: 6px; height: 16px; } .fi-brandrow .b > div { height: 16px; border-radius: 6px; background: #8E3B5A; }
 div[data-testid="stTabs"] button p { font-weight: 600; }
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"],
+section[data-testid="stSidebar"] [data-testid="stWidgetLabel"] {
+  background: transparent !important;
+}
 </style>
 """
 
