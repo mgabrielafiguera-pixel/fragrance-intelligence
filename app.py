@@ -4,6 +4,7 @@ Ejecutar:  streamlit run app.py
 Requisito: data/fragancias.duckdb (python etl/construir_duckdb.py)
 """
 import datetime as dt
+import json
 import streamlit as st
 import streamlit.components.v1 as components
 from lib.db import Filtros, q
@@ -11,22 +12,6 @@ from lib import ui
 
 st.set_page_config(page_title="Fragrance Intelligence", page_icon="◆", layout="wide")
 ui.estilos()
-components.html(
-    """
-    <script>
-      const root = window.parent.document.documentElement;
-      root.lang = 'es';
-      root.setAttribute('translate', 'no');
-      if (!window.parent.document.querySelector('meta[name="google"][content="notranslate"]')) {
-        const meta = window.parent.document.createElement('meta');
-        meta.name = 'google';
-        meta.content = 'notranslate';
-        window.parent.document.head.appendChild(meta);
-      }
-    </script>
-    """,
-    height=0,
-)
 
 
 def _opciones(campo: str, f_previos: Filtros) -> list:
@@ -80,6 +65,39 @@ sidebar.markdown(
 )
 for pagina in paginas:
     sidebar.page_link(pagina, label=pagina.title)
+script = """
+<script>
+  const parentDocument = window.parent.document;
+  const root = parentDocument.documentElement;
+  root.lang = 'es';
+  root.setAttribute('translate', 'no');
+  if (!parentDocument.querySelector('meta[name="google"][content="notranslate"]')) {
+    const meta = parentDocument.createElement('meta');
+    meta.name = 'google';
+    meta.content = 'notranslate';
+    parentDocument.head.appendChild(meta);
+  }
+  const activePagePath = __ACTIVE_PAGE_PATH__;
+  const markActivePage = () => {
+    parentDocument.querySelectorAll(
+      'section[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"]'
+    ).forEach((link) => {
+      const active = link.getAttribute('href') === activePagePath;
+      if (active && link.getAttribute('aria-current') !== 'page') {
+        link.setAttribute('aria-current', 'page');
+      } else if (!active && link.hasAttribute('aria-current')) {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+  markActivePage();
+  new MutationObserver(markActivePage).observe(parentDocument.body, {
+    childList: true,
+    subtree: true
+  });
+</script>
+""".replace("__ACTIVE_PAGE_PATH__", json.dumps(nav.url_path))
+components.html(script, height=0)
 sidebar.markdown('<hr class="fi-sidebar-divider">', unsafe_allow_html=True)
 st.session_state["filtros"] = filtros_globales()
 nav.run()

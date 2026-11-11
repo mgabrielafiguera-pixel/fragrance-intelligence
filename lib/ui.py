@@ -22,10 +22,23 @@ section[data-testid="stSidebar"] { background: #2A1520; }
 section[data-testid="stSidebar"] * { color: #E9D6DD; }
 section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] span { background: transparent !important; }
 section[data-testid="stSidebar"] div { background: transparent; }
-section[data-testid="stSidebar"] [data-baseweb="select"] > div { background: #3A1F2C; border-color: #5A3546; }
+section[data-testid="stSidebar"] [data-baseweb="select"] > div {
+  background: #3A1F2C !important; border-color: #5A3546 !important;
+}
 section[data-testid="stSidebar"] [data-baseweb="tag"] { background: #8E3B5A; }
+section[data-testid="stSidebar"] [data-baseweb="select"] input,
+section[data-testid="stSidebar"] [data-baseweb="select"] input::placeholder,
+section[data-testid="stSidebar"] [data-baseweb="select"] [data-testid="stSelectValue"] {
+  color: #E9D6DD !important;
+}
+section[data-testid="stSidebar"] [data-testid="stDateInput"] [data-baseweb="input"] > div {
+  background: #3A1F2C !important; border-color: #5A3546 !important;
+}
+section[data-testid="stSidebar"] [data-testid="stDateInput"] input {
+  background: #3A1F2C !important; color: #E9D6DD !important; border-color: #5A3546 !important;
+}
 section[data-testid="stSidebar"] [data-testid="stPageLink"] a {
   display: block; padding: 10px 14px; border-radius: 12px; font-size: 17px;
   color: #E9D6DD; text-decoration: none; background: transparent;
@@ -46,9 +59,6 @@ section[data-testid="stSidebar"] .fi-sidebar-logo-sub {
 }
 .fi-sidebar-divider { border: 0; border-top: 1px solid #4A2A38; margin: 18px 0; }
 .fi-sidebar-note { margin-top: 12px; font-size: 13px; line-height: 1.5; color: #C9A9B6 !important; }
-section[data-testid="stSidebar"] [data-testid="stPageLink"] a[href=""] {
-  background: #8E3B5A; color: #fff; font-weight: 700;
-}
 ::selection { background: #E8A0B4; color: #2A1520; }
 h1, h2, h3 { font-family: 'Cormorant Garamond', serif !important; color: #2A1520; }
 .fi-eyebrow { font-size: 12px; letter-spacing: 3px; color: #8E3B5A; font-weight: 600; text-transform: uppercase; }
@@ -179,7 +189,7 @@ def foto(url, marca, alt="") -> str:
     ini = (f'<div class="fi-ph-ini" translate="no"><b>{esc(iniciales(marca))}</b>'
            f'<small>{esc(str(marca).upper())}</small></div>')
     im = (f'<img class="fi-ph-img" src="{esc(src)}" alt="{esc(alt)}" loading="lazy" '
-          'onerror="this.style.display=\'none\'" translate="no">') if src else ""
+          'translate="no">') if src else ""
     return ini + im
 
 

@@ -1,10 +1,12 @@
 # Fragrance Intelligence
 
+**Demo en vivo:** https://fragrance-intelligence.streamlit.app
+
 Aplicación de inteligencia de negocios para analizar ventas, compras, inventario y rentabilidad de la categoría de fragancias. El proyecto transforma hojas de cálculo operativas en métricas auditables y una aplicación interactiva para apoyar decisiones comerciales y de abastecimiento.
 
 ## Problema de negocio
 
-La información de ventas, compras, inventario y proveedores requiere un análisis conjunto para identificar productos líderes, oportunidades de margen y riesgos de disponibilidad. Fragrance Intelligence integra esas fuentes, aplica filtros de producto y periodo, y presenta indicadores y acciones sugeridas en un solo lugar.
+La información de ventas, compras, inventario y abastecimiento nacional e internacional requiere un análisis conjunto para identificar productos líderes, oportunidades de margen y riesgos de disponibilidad. Fragrance Intelligence integra esas fuentes, aplica filtros de producto y periodo, y presenta indicadores y acciones sugeridas en un solo lugar.
 
 ## Hallazgos principales
 
@@ -14,7 +16,7 @@ Con los datos incluidos y sin filtros de producto, el resumen de 2026 muestra:
 - Margen bruto de **52,0%** y ticket promedio de **$380**.
 - **1.541** facturas y **930** clientes activos.
 - **BOND NO. 9** es la marca líder en venta; **Creed** presenta el mayor crecimiento absoluto en USD.
-- El resumen señala quiebres entre los SKU de mayor venta y muestra la comparación de costos de proveedores basada en el historial disponible.
+- El resumen señala quiebres entre los SKU de mayor venta y muestra la comparación de costos entre abastecimiento nacional e internacional basada en el historial disponible.
 
 Las cifras responden a los filtros seleccionados en la app; la vista y el periodo de comparación se indican en pantalla.
 
@@ -65,7 +67,7 @@ Las cifras responden a los filtros seleccionados en la app; la vista y el period
 Requiere Python 3.11 o superior para el entorno recomendado:
 
 ```bash
-git clone https://github.com/<usuario>/fragrance-intelligence.git
+git clone https://github.com/mgabrielafiguera-pixel/fragrance-intelligence.git
 cd fragrance-intelligence
 python3 -m venv .venv
 source .venv/bin/activate
