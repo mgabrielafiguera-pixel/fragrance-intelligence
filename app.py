@@ -44,7 +44,7 @@ def filtros_globales() -> Filtros:
     return f
 
 
-from vistas import resumen, ventas, compras, rentabilidad, estadistica, metodologia  # noqa: E402
+from vistas import resumen, ventas, compras, rentabilidad, estadistica, plan, metodologia  # noqa: E402
 
 paginas = [
     st.Page(resumen.render, title="Resumen gerencial", url_path="resumen", default=True),
@@ -52,6 +52,7 @@ paginas = [
     st.Page(compras.render, title="Compras y abastecimiento", url_path="compras"),
     st.Page(rentabilidad.render, title="Rentabilidad e inventario", url_path="rentabilidad"),
     st.Page(estadistica.render, title="Estadística (R)", url_path="estadistica"),
+    st.Page(plan.render, title="Plan de compras 2027", url_path="plan"),
     st.Page(metodologia.render, title="Metodología y controles", url_path="metodologia"),
 ]
 nav = st.navigation(paginas, position="hidden")

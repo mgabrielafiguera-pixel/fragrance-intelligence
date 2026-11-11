@@ -17,6 +17,7 @@ Con los datos incluidos y sin filtros de producto, el resumen de 2026 muestra:
 - **1.541** facturas y **930** clientes activos.
 - **BOND NO. 9** es la marca líder en venta; **Creed** presenta el mayor crecimiento absoluto en USD.
 - El resumen señala quiebres entre los SKU de mayor venta y muestra la comparación de costos entre abastecimiento nacional e internacional basada en el historial disponible.
+- Plan de compras 2027: 1.321 unidades a comprar para vender ~2.333, con 638 que deben llegar antes de diciembre.
 
 Las cifras responden a los filtros seleccionados en la app; la vista y el periodo de comparación se indican en pantalla.
 
@@ -26,7 +27,7 @@ Las cifras responden a los filtros seleccionados en la app; la vista y el period
 
 1. **Excel:** fuente operativa de ventas, compras, inventario y dimensiones. El proceso de construcción la lee sin modificarla.
 2. **DuckDB y SQL:** `etl/construir_duckdb.py` carga tablas `raw_*`; `sql/modelo.sql` define vistas de hechos y dimensiones con las reglas de negocio.
-3. **Python:** `lib/` centraliza acceso de solo lectura y filtros SQL; `vistas/` implementa indicadores, visualizaciones y simulaciones.
+3. **Python:** `lib/` centraliza acceso de solo lectura y filtros SQL; `lib/plan.py` calcula el plan de compras 2027; `vistas/` implementa indicadores, visualizaciones y simulaciones.
 4. **R:** `R/estadistica_forecast.R` genera análisis estadísticos y pronósticos. Sus resultados CSV ya se incluyen en `data/r_outputs/`; ejecutar R no es necesario para iniciar la app.
 5. **Streamlit:** `app.py` integra las pantallas y filtros globales.
 
